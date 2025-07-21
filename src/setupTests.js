@@ -1,5 +1,9 @@
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
-import '@testing-library/jest-dom';
+import { render, screen } from "@testing-library/react";
+import App from "../App";
+import "@testing-library/jest-dom";
+
+test("renders Smart Goal Planner header", () => {
+  render(<App />);
+  const header = screen.getByText(/Smart Goal Planner/i);
+  expect(header).toBeInTheDocument();
+});
